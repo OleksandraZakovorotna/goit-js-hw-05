@@ -1,26 +1,56 @@
-// function getCommonElements(array1, array2) {
-//   let massive = [];
-//     for (let i = 0; i <= array1.length; i++) {
-//             if (array2.includes(array1[i])) {
-//                 massive.push(array1[i])
-//             }
-//         }
-//     return massive;
-// }
+// Напиши стрілочну функцію getTotalBalanceByGender(users, gender), яка прийматиме два параметра:
 
-// // const a1 = [1, 2, 3];
-// // const a2 = [2, 1, 17, 19];
+// перший параметр users — масив об’єктів користувачів,
+// другий параметр gender — рядок, що зберігає стать.
+// Функція має використовувати ланцюжок виклику методів та повертати загальний баланс користувачів (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
 
-// // let aa1 = a1.join(" ");
-// // let aa2 = a2.join(" ");
+// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
 
-// // console.log(aa1)
-// // console.log(aa2)
-
-// // const la = aa1.includes(aa2);
-// // console.log(la)
+const getTotalBalanceByGender = (users, gender) => { return users
+    .filter(user => user.gender === gender)
+    .reduce((balance, user) => {return balance + user.balance; }, 0);
+};
 
 
 
-// console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27])); // "Shipping to Australia will cost 170 credits"
+const clients = [
+	{
+    name: "Moore Hensley",
+    gender: "male",
+    balance: 2811
+  },
+  {
+    name: "Sharlene Bush",
+    gender: "female",
+    balance: 3821
+  },
+  {
+    name: "Ross Vazquez",
+    gender: "male",
+    balance: 3793
+  },
+  {
+    name: "Elma Head",
+    gender: "female",
+    balance: 2278
+  },
+  {
+    name: "Carey Barr",
+    gender: "male",
+    balance: 3951
+  },
+  {
+    name: "Blackburn Dotson",
+    gender: "male",
+    balance: 1498
+  },
+  {
+    name: "Sheree Anthony",
+    gender: "female",
+    balance: 2764
+  }
+];
 
+console.log(getTotalBalanceByGender(clients, "male")); // 12053
+
+console.log(getTotalBalanceByGender(clients, "female")); // 8863
